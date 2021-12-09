@@ -20,9 +20,11 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
+                {/* Aki define a ordem que vai apresentar a tela inicial. */}
                 <Stack.Screen name="Login" component={LoginPage} />
-               <Stack.Screen name="SignUp" component={SignUpPage} />
                 <Stack.Screen name="Home" component={HomePage} />
+               <Stack.Screen name="SignUp" component={SignUpPage} />
+                
                 {/* <Stack.Screen name="Post" component={PostPage} /> */}
             </Stack.Navigator>
         </NavigationContainer>
