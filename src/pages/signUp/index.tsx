@@ -45,13 +45,13 @@ export default function SignUp() {
         console.log(user)
         const savedUser = await snService.createUser(user);
         try {
-            if (savedUser && savedUser.id) {
+            if (savedUser !==null ) {
                 navigation.goBack();
             } else {
                 alert('Usuário já existente!');
                 // console.log(user)
                 // console.log("Usuario usado")
-                // console.log(savedUser)
+                 console.log(savedUser)
                 // console.log("metodo criado")
                 // console.log(snService.createUser(user))
             }

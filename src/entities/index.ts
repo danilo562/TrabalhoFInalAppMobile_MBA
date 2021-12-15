@@ -7,3 +7,27 @@ export interface User {
     userPassword: string;    
 
 }
+
+export interface LoginUser {
+   
+    login: string;
+    password: string;    
+
+}
+
+
+export interface Product {
+   
+    id: number;
+    name: string;    
+    price: number; 
+    amount:number;
+    factory:Factory; 
+}
+
+export interface Factory {
+   
+    id: number;
+    name: string;    
+     
+}

@@ -5,6 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 import MyTextInput from '../../components/mytext';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { TypeRoutes } from '../../routes';
+import { snService } from '../../services/sn.service';
+import storage from '../../repositories/storage';
+import { LoginUser } from '../../entities';
 
 
 export default function Login() {
@@ -15,15 +18,17 @@ export default function Login() {
 
 
     async function login() {
-        // const token = await snService.login(email, password);
-        // if (token) {
-        //     const user = await snService.getUser(token);
-        //     await storage.save({ token, user });
-        //     navigation.navigate('Home');
-        // } else {
-        //     alert('Login inválido!');
-        // }
-        navigation.navigate('Home');
+        console.log("Entrou")
+        const token = await snService.login(email, password);
+        console.log(token)
+        if (token) {
+            const user = await snService.getUser(token);
+            await storage.save({ token, user });
+            navigation.navigate('Home');
+        } else {
+            alert('Login inválido!');
+        }
+       // navigation.navigate('Home');
     }
 
     async function cadastrar() {
